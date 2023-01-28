@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
+        
     }
 
     // Update is called once per frame
