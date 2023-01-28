@@ -12,15 +12,17 @@ public class PlayerControllerMP : MonoBehaviour
     public SpriteRenderer spriteRender;
 
     [Space(5)]
-    public Sprite lunaNormalDown;
-    public Sprite lunaNormalDownRight;
-    public Sprite lunaNormalRight;
-    public Sprite lunaNormalTopRight;
-    public Sprite lunaNormalTop;
+    public Sprite[] sprites;
+
     [Space(2)]
-    public Sprite lunaJump1;
-    public Sprite lunaJump2;
-    public Sprite lunaFumble;
+    Sprite spriteNormalRight;
+    Sprite spriteNormalDownRight;
+    Sprite spriteNormalTopRight;
+    Sprite spriteNormalDown;
+    Sprite spriteNormalTop;
+    Sprite spriteJump1;
+    Sprite spriteJump2;
+    Sprite spriteFumble;
 
     [Space(5)]
     [SerializeField] float _accelRate = 0.5f;
@@ -43,15 +45,25 @@ public class PlayerControllerMP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int pIndex = playerInput.playerIndex;
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
-        transform.position += new Vector3(playerInput.playerIndex * 3f, 0);
+        transform.position += new Vector3(pIndex * 3f, 0);
         GameControllerMultiplayer.instance.AddPlayerTransform(transform);
 
         if(playerInput.currentControlScheme == "Mouse")
         {
             isMouse = true;
         }
+
+        spriteNormalRight = sprites[(pIndex) * 8 + 0];
+        spriteNormalDownRight = sprites[(pIndex) * 8 + 1];
+        spriteNormalTopRight = sprites[(pIndex) * 8 + 2];
+        spriteNormalDown = sprites[(pIndex) * 8 + 3];
+        spriteNormalTop = sprites[(pIndex) * 8 + 4];
+        spriteJump1 = sprites[(pIndex) * 8 + 5];
+        spriteJump2 = sprites[(pIndex) * 8 + 6];
+        spriteFumble = sprites[(pIndex) * 8 + 7];
     }
 
     // Update is called once per frame
@@ -73,6 +85,7 @@ public class PlayerControllerMP : MonoBehaviour
 
         if (_isJumping)
         {
+            _currJumpDura += Time.deltaTime;
             inputAccel += _accelRate * 2f;
         }
         else
@@ -101,20 +114,20 @@ public class PlayerControllerMP : MonoBehaviour
             if (movementInput.y > 0.25f)
             {
                 if (movementInput.x > 0.25f || movementInput.x < -0.25f)
-                    spriteRender.sprite = lunaNormalTopRight;
+                    spriteRender.sprite = spriteNormalTopRight;
                 else
-                    spriteRender.sprite = lunaNormalTop;
+                    spriteRender.sprite = spriteNormalTop; ;
             }
             else if (movementInput.y < -0.25f)
             {
                 if (movementInput.x > 0.25f || movementInput.x < -0.25f)
-                    spriteRender.sprite = lunaNormalDownRight;
+                    spriteRender.sprite = spriteNormalDownRight;
                 else
-                    spriteRender.sprite = lunaNormalDown;
+                    spriteRender.sprite = spriteNormalDown;
             }
             else
             {
-                spriteRender.sprite = lunaNormalRight;
+                spriteRender.sprite = spriteNormalRight;
             }
 
             _currDirection += inputDirection * Time.deltaTime * _turnRate;
@@ -140,12 +153,29 @@ public class PlayerControllerMP : MonoBehaviour
     IEnumerator DisableInputForSeconds(float val)
     {
         _inputActive = false;
-        spriteRender.sprite = lunaFumble;
+        spriteRender.sprite = spriteFumble;
 
         yield return new WaitForSeconds(val);
 
         _inputActive = true;
 
+        yield return null;
+    }
+
+    IEnumerator RampJump()
+    {       
+        _isJumping = true;
+        _inputActive = false;
+
+        spriteRender.sprite = spriteJump1;
+        yield return new WaitForSeconds(0.5f);
+
+        spriteRender.sprite = spriteJump2;
+        yield return new WaitForSeconds(0.5f);
+
+        _isJumping = false;
+        _inputActive = true;
+        _currJumpDura = 0f;
         yield return null;
     }
 
@@ -163,20 +193,17 @@ public class PlayerControllerMP : MonoBehaviour
         // lol die
     }
 
-    void RampJump()
-    {
-        _isJumping = true;
-        _currJumpDura = 0f;
-
-        // change sprite
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Obstacle") && collision.gameObject != _currObstacle)
         {
             _currObstacle = collision.gameObject;
             HitObstacle();
+        }
+
+        if(collision.CompareTag("Ramp"))
+        {
+            StartCoroutine(RampJump());
         }
     }
 }
