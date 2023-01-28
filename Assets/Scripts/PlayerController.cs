@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     [Space(5)]
     [SerializeField] bool _inputActive = true;
+    GameObject _currObstacle = null;
 
     // Start is called before the first frame update
     void Start()
@@ -120,12 +121,12 @@ public class PlayerController : MonoBehaviour
         // change sprite
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Obstacle"))
+        if(collision.CompareTag("Obstacle") && collision.gameObject != _currObstacle)
         {
+            _currObstacle = collision.gameObject;
             HitObstacle();
-            collision.gameObject.GetComponent<ObstacleBehaviour>().DisableCollider();
         }
     }
 }

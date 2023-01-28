@@ -22,12 +22,4 @@ public class ObstacleBehaviour : MonoBehaviour
     {
         _boxCollider.enabled = false;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //_boxCollider.enabled = false;
-        }
-    }
 }
