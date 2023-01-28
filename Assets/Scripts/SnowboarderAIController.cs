@@ -5,6 +5,8 @@ using UnityEngine;
 public class SnowboarderAIController : MonoBehaviour
 {
     [Space(5)]
+
+    [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] float _speedModRange;
 
