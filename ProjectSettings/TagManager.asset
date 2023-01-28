@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+<<<<<<< HEAD
   - Yeti
+=======
+  - Ramp
+>>>>>>> 736749f58a1660f2f606ae7501562d7e9e356a32
   layers:
   - Default
   - TransparentFX

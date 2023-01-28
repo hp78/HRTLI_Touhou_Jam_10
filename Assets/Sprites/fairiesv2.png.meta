@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 39b6bc54d11ade24f80ac1bd33f6baf1
-=======
-guid: 1b92bbeaa2805f2448f04e0042c818d2
->>>>>>> 736749f58a1660f2f606ae7501562d7e9e356a32
+guid: 6d4b1c8941e86504fa5d05c172465f14
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -46,21 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-  spriteExtrude: 1
-  spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
-=======
   spriteMode: 2
   spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 24
->>>>>>> 736749f58a1660f2f606ae7501562d7e9e356a32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,11 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-=======
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -135,678 +117,677 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fairies_0
+      name: fairiesv2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9c05b51db3868c49af88a16384a0876
-      internalID: -1081571199
+      spriteID: 3640b1943104778419081616b878d434
+      internalID: 1420054810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_1
+      name: fairiesv2_1
       rect:
         serializedVersion: 2
         x: 21
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95b660c0d6f372f468cf042ddca2cd0b
-      internalID: 285236411
+      spriteID: f11d974136790a74c856c28831a3fbcf
+      internalID: -146909921
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_2
+      name: fairiesv2_2
       rect:
         serializedVersion: 2
         x: 42
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80d997a0290dbf4f8f3bbc9fd6f0aad
-      internalID: -1777612509
+      spriteID: 81fc3c6ee5bb34e4399003865cf1f072
+      internalID: 292884188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_3
+      name: fairiesv2_3
       rect:
         serializedVersion: 2
         x: 63
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02c1803e109fd10498fe74b05a512392
-      internalID: -1990351759
+      spriteID: 6ece5b525f7342d41ba921bd4ca5f8a1
+      internalID: 16506130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_4
+      name: fairiesv2_4
       rect:
         serializedVersion: 2
         x: 84
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10642eedd96b919479cc4a64eed525d1
-      internalID: -899172619
+      spriteID: 1162b49b379d1644facbd1309d864aee
+      internalID: 1585582844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_5
+      name: fairiesv2_5
       rect:
         serializedVersion: 2
         x: 105
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6612d06b333a9f45b8801492b30010b
-      internalID: 848348417
+      spriteID: bf32edab669236f4b88ff63f419f6afb
+      internalID: 1223256610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_6
+      name: fairiesv2_6
       rect:
         serializedVersion: 2
         x: 126
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07098965dc3227a4b9147d99c095ee4e
-      internalID: -2124698282
+      spriteID: 4d6b04adb9e048d4983922fafa2d2775
+      internalID: -1687172931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_7
+      name: fairiesv2_7
       rect:
         serializedVersion: 2
         x: 147
-        y: 66
+        y: 69
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68c1c143760b109488f634142a1c9a69
-      internalID: 2061722843
+      spriteID: 2da326cfb4ca9af4dad1827ff23a3abb
+      internalID: -1900973457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_8
+      name: fairiesv2_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d068de020c5ad684495e6fdbccf7b8bf
-      internalID: -344004735
+      spriteID: 8d0867c89de17444284d82e2b9458a6a
+      internalID: -1088360712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_9
+      name: fairiesv2_9
       rect:
         serializedVersion: 2
         x: 21
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 040df749dbd4b054cafce84649356a66
-      internalID: -1917306011
+      spriteID: 1c16a8b4029d8d245b402c84f450de0e
+      internalID: 1544349891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_10
+      name: fairiesv2_10
       rect:
         serializedVersion: 2
         x: 42
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34a4720e58116d3468dab9eb46a791e2
-      internalID: -1303846872
+      spriteID: 31951207757e22c4c8e8b05210587e02
+      internalID: 662033725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_11
+      name: fairiesv2_11
       rect:
         serializedVersion: 2
         x: 63
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dfca2732d89edb469ab820da5e3febc
-      internalID: -1630345294
+      spriteID: e947d7e989ffd754e8dfce71a33d5106
+      internalID: 866094034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_12
+      name: fairiesv2_12
       rect:
         serializedVersion: 2
         x: 84
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfe990eb4db9f7043bc94dfdbac7716c
-      internalID: -2002038791
+      spriteID: 9184642458758d24f9860e93e4d36e69
+      internalID: -320396131
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_13
+      name: fairiesv2_13
       rect:
         serializedVersion: 2
         x: 105
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6744be04899d8e64bb2ebea2b35d3c21
-      internalID: -1482176726
+      spriteID: 7e136dfd6ad4bfe4283cc7a44dfa130a
+      internalID: -1340462869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_14
+      name: fairiesv2_14
       rect:
         serializedVersion: 2
         x: 126
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: adfcf06215330904e8d454ded5115afe
-      internalID: 269781896
+      spriteID: 6a599fe11e29a8b41b1080e9b5f576b1
+      internalID: 1356202897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_15
+      name: fairiesv2_15
       rect:
         serializedVersion: 2
         x: 147
-        y: 44
+        y: 46
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a718df8982a486e4f83144e5966d4471
-      internalID: 470975440
+      spriteID: ed85e9f1602e0954da354d72a1e64f2d
+      internalID: 1824029587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_16
+      name: fairiesv2_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63221a28349c5d94380499a3004ce7a5
-      internalID: -687760878
+      spriteID: e714a7a2c3879c2459b764e44186eeb9
+      internalID: 1617459919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_17
+      name: fairiesv2_17
       rect:
         serializedVersion: 2
         x: 21
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b092734693c98074f99b1e8d413af3ba
-      internalID: 371743801
+      spriteID: d997937d7daa7bb4da3c25f3c8b80b5b
+      internalID: 513378611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_18
+      name: fairiesv2_18
       rect:
         serializedVersion: 2
         x: 42
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d37c562fc0d4494469946c04c2cf25da
-      internalID: 536663927
+      spriteID: a07e327f06efd0a4a954b08d60d80569
+      internalID: -1558414490
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_19
+      name: fairiesv2_19
       rect:
         serializedVersion: 2
         x: 63
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9960c01faafc69c46a42e5f2d5361340
-      internalID: 1461269148
+      spriteID: f04246b2cbbd9734b87a03794f4a8854
+      internalID: -247887764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_20
+      name: fairiesv2_20
       rect:
         serializedVersion: 2
         x: 84
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b91ea5bdb3506504dbe754c441c3b910
-      internalID: -1774800127
+      spriteID: 706fc8eda989fd9479737e14efdc25ac
+      internalID: -1458045076
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_21
+      name: fairiesv2_21
       rect:
         serializedVersion: 2
         x: 105
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 285b69b9ec3fd2f4e9bea279ab23c5d8
-      internalID: -1626043224
+      spriteID: ff209962ab80bf142b311c6d09d4c1ac
+      internalID: -2082583477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_22
+      name: fairiesv2_22
       rect:
         serializedVersion: 2
         x: 126
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50b5dc1e0cfee344292f1898524573f3
-      internalID: -619122634
+      spriteID: e0888d654b7526c4fa4f3adf63792bdf
+      internalID: 2047353479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_23
+      name: fairiesv2_23
       rect:
         serializedVersion: 2
         x: 147
-        y: 22
+        y: 23
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7238637166ff1c44bafcc91ca942149a
-      internalID: 1239076528
+      spriteID: 9944d12544ae1aa45ad14782a6ee2d94
+      internalID: -1584854686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_24
+      name: fairiesv2_24
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2221c098f1b963549953d4f6cef1c971
-      internalID: 2143433972
+      spriteID: b55e7c491ef5b444f95db87d74ef3cea
+      internalID: -9941790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_25
+      name: fairiesv2_25
       rect:
         serializedVersion: 2
         x: 21
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1323ceffcd57c5f419e14249bb73d923
-      internalID: -1587758281
+      spriteID: 0e4bd7ce822c15c41a24987bb42378bd
+      internalID: 2048032190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_26
+      name: fairiesv2_26
       rect:
         serializedVersion: 2
         x: 42
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1382777ea799a534180bd18d5cbb9eda
-      internalID: -1009540393
+      spriteID: 26639f4cb312c7b4ca1bcbfc892438c5
+      internalID: -1930870667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_27
+      name: fairiesv2_27
       rect:
         serializedVersion: 2
         x: 63
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90cf95c75ac581246bda6f0d55fb8f36
-      internalID: -741839301
+      spriteID: e294e66a77a835c4c802f080507ee72c
+      internalID: 774451624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_28
+      name: fairiesv2_28
       rect:
         serializedVersion: 2
         x: 84
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cabeb7542bf1fb14885169e68145d41b
-      internalID: 912386622
+      spriteID: a3400510259f57e4db3e0a715d83dd4d
+      internalID: -31678804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_29
+      name: fairiesv2_29
       rect:
         serializedVersion: 2
         x: 105
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b4b29c91bd2a274aa7c1d8f4f144b71
-      internalID: -1451641563
+      spriteID: d53969fbf18c04249ace617a95b21158
+      internalID: 801710146
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_30
+      name: fairiesv2_30
       rect:
         serializedVersion: 2
         x: 126
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d75c8f09a3306442a4a8c448f76232d
-      internalID: -1237897930
+      spriteID: 3e963b993d488d64da684dc68755f2fe
+      internalID: 317840557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fairies_31
+      name: fairiesv2_31
       rect:
         serializedVersion: 2
         x: 147
         y: 0
         width: 21
-        height: 22
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6d31aaa0cef0f4499236264822750c7
-      internalID: -605037286
+      spriteID: 61e738e9fa034bf42b9a4fc79a7e8d5f
+      internalID: 1478971306
       vertices: []
       indices: 
       edges: []
       weights: []
->>>>>>> 736749f58a1660f2f606ae7501562d7e9e356a32
     outline: []
     physicsShape: []
     bones: []
@@ -817,43 +798,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<< HEAD
-    nameFileIdTable: {}
-=======
     nameFileIdTable:
-      fairies_30: -1237897930
-      fairies_22: -619122634
-      fairies_18: 536663927
-      fairies_19: 1461269148
-      fairies_10: -1303846872
-      fairies_14: 269781896
-      fairies_7: 2061722843
-      fairies_31: -605037286
-      fairies_1: 285236411
-      fairies_0: -1081571199
-      fairies_13: -1482176726
-      fairies_8: -344004735
-      fairies_24: 2143433972
-      fairies_29: -1451641563
-      fairies_4: -899172619
-      fairies_27: -741839301
-      fairies_16: -687760878
-      fairies_9: -1917306011
-      fairies_11: -1630345294
-      fairies_15: 470975440
-      fairies_17: 371743801
-      fairies_25: -1587758281
-      fairies_3: -1990351759
-      fairies_2: -1777612509
-      fairies_5: 848348417
-      fairies_28: 912386622
-      fairies_12: -2002038791
-      fairies_21: -1626043224
-      fairies_26: -1009540393
-      fairies_6: -2124698282
-      fairies_23: 1239076528
-      fairies_20: -1774800127
->>>>>>> 736749f58a1660f2f606ae7501562d7e9e356a32
+      fairiesv2_26: -1930870667
+      fairiesv2_7: -1900973457
+      fairiesv2_25: 2048032190
+      fairiesv2_27: 774451624
+      fairiesv2_13: -1340462869
+      fairiesv2_1: -146909921
+      fairiesv2_9: 1544349891
+      fairiesv2_3: 16506130
+      fairiesv2_28: -31678804
+      fairiesv2_18: -1558414490
+      fairiesv2_15: 1824029587
+      fairiesv2_22: 2047353479
+      fairiesv2_0: 1420054810
+      fairiesv2_31: 1478971306
+      fairiesv2_6: -1687172931
+      fairiesv2_30: 317840557
+      fairiesv2_10: 662033725
+      fairiesv2_21: -2082583477
+      fairiesv2_24: -9941790
+      fairiesv2_2: 292884188
+      fairiesv2_29: 801710146
+      fairiesv2_14: 1356202897
+      fairiesv2_19: -247887764
+      fairiesv2_11: 866094034
+      fairiesv2_8: -1088360712
+      fairiesv2_12: -320396131
+      fairiesv2_4: 1585582844
+      fairiesv2_16: 1617459919
+      fairiesv2_5: 1223256610
+      fairiesv2_23: -1584854686
+      fairiesv2_20: -1458045076
+      fairiesv2_17: 513378611
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
