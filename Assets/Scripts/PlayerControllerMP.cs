@@ -140,6 +140,7 @@ public class PlayerControllerMP : MonoBehaviour
     IEnumerator DisableInputForSeconds(float val)
     {
         _inputActive = false;
+        spriteRender.sprite = lunaFumble;
 
         yield return new WaitForSeconds(val);
 
