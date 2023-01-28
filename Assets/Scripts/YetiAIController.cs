@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class YetiAIController : MonoBehaviour
 {
+    [Space(5)]
+    [SerializeField] SpriteRenderer _idle;
+    [SerializeField] SpriteRenderer _walk;
 
     [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] List<Transform> _playerList = new List<Transform>();
-    [SerializeField] Transform _currentTarget = null;
 
+    [Space(5)]
+    [SerializeField] Transform _currentTarget = null;
     [SerializeField] Vector3 _currDirection;
 
 
     float _checkDistanceCooldown;
     DistanceComparer distanceComparer;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -47,13 +52,25 @@ public class YetiAIController : MonoBehaviour
     {
         _currDirection = (_currentTarget.position - transform.position).normalized;
         this.transform.position += (_currDirection * _speed) * Time.deltaTime;
+        _walk.flipX = _currDirection.x < 0.0f;
     }
 
     void CheckDistanceWithPlayers()
     {
         _playerList.Sort(distanceComparer);
-        if (_playerList.Count >= 1) _currentTarget = _playerList[0];
-        else _currentTarget = null;
+        if (_playerList.Count >= 1)
+        {
+            _currentTarget = _playerList[0];
+            _walk.gameObject.SetActive(true);
+            _idle.gameObject.SetActive(false);
+        }
+        else
+        {
+            _currentTarget = null;
+            _walk.gameObject.SetActive(false);
+            _idle.gameObject.SetActive(true);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

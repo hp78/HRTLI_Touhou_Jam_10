@@ -5,6 +5,9 @@ using UnityEngine;
 public class ChenAiController : MonoBehaviour
 {
     [Space(5)]
+    [SerializeField] SpriteRenderer _walk;
+
+    [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] float _direction;
 
@@ -50,12 +53,13 @@ public class ChenAiController : MonoBehaviour
                                                 0f, 0f) 
                                                 *Time.deltaTime;
 
+        _walk.flipX = _direction < 0.0f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
-           {
+        {
             ChenFuckingDies();
         }
     }
