@@ -13,13 +13,18 @@ public class SnowboarderAIController : MonoBehaviour
     [SerializeField] Sprite _crash;
     [Space(5)]
     [SerializeField] float _speed;
-    [SerializeField] float _speedModRange;
     [SerializeField] Collider2D _col;
 
     [Space(5)]
     [SerializeField] Vector3 _currDirection;
     [SerializeField] Transform _targetDirection;
     [SerializeField] float _directionChangeRate;
+
+    [Space(5)]
+    [SerializeField] float _catchUpDistThreshold = 12;
+    [SerializeField] float _speedMod = 12;
+    [SerializeField] List<Transform> _playerList = new List<Transform>();
+
 
     float _changeDirectionCooldown;
     bool _changingDirection;
@@ -30,12 +35,14 @@ public class SnowboarderAIController : MonoBehaviour
 
     public Vector3 newTarget;
     GameObject _currObstacle = null;
+    DistanceComparer distanceComparer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        distanceComparer = new DistanceComparer(transform);
+
     }
 
     // Update is called once per frame
@@ -63,6 +70,19 @@ public class SnowboarderAIController : MonoBehaviour
             }
         }
         _changeDirectionCooldown -= Time.deltaTime;
+    }
+
+
+    void CheckPlayerDistance()
+    {
+        if(_playerList.Count <1)
+        {
+            var temp = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject go in temp) _playerList.Add(go.transform);
+        }
+
+        _playerList.Sort(distanceComparer);
+
     }
 
     void Movement()

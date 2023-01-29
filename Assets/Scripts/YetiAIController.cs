@@ -110,19 +110,21 @@ public class YetiAIController : MonoBehaviour
         }
     }
 
-    public class DistanceComparer : IComparer<Transform>
+}
+
+
+public class DistanceComparer : IComparer<Transform>
+{
+    private Transform target;
+
+    public DistanceComparer(Transform distanceToTarget)
     {
-        private Transform target;
+        target = distanceToTarget;
+    }
 
-        public DistanceComparer(Transform distanceToTarget)
-        {
-            target = distanceToTarget;
-        }
-
-        public int Compare(Transform a, Transform b)
-        {
-            var targetPosition = target.position;
-            return Vector3.Distance(a.position, targetPosition).CompareTo(Vector3.Distance(b.position, targetPosition));
-        }
+    public int Compare(Transform a, Transform b)
+    {
+        var targetPosition = target.position;
+        return Vector3.Distance(a.position, targetPosition).CompareTo(Vector3.Distance(b.position, targetPosition));
     }
 }
