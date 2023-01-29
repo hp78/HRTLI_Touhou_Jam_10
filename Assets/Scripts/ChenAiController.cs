@@ -20,11 +20,12 @@ public class ChenAiController : MonoBehaviour
     [SerializeField] Transform _Ran;
     [SerializeField] Transform _ranSpawnPoint;
 
-
+    [Space(5)]
+    [SerializeField] List<PlayerControllerMP> _playerList = new List<PlayerControllerMP>();
 
     float _changeDirectionCooldown = 0f;
     bool _chendies = false;
-
+    bool _grabbedPlayers;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +42,7 @@ public class ChenAiController : MonoBehaviour
             {
                 _direction = Random.Range(-1f, 1f);
                 _changeDirectionCooldown = Random.Range(0.5f, 3f);
+                CheckPlayerDistance();
             }
 
             _changeDirectionCooldown -= Time.deltaTime;
@@ -54,6 +56,49 @@ public class ChenAiController : MonoBehaviour
                                                 *Time.deltaTime;
 
         _walk.flipX = _direction < 0.0f;
+    }
+
+    void CheckPlayerDistance()
+    {
+        var temp = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject go in temp)
+        {
+            var tempplayer = go.GetComponent<PlayerControllerMP>();
+            if(!_playerList.Contains(tempplayer))
+                _playerList.Add(go.GetComponent<PlayerControllerMP>());
+        }
+
+        if (_playerList.Count == 0) return;
+
+
+        List<Transform> aliveList =  new List<Transform>();
+        foreach (PlayerControllerMP player in _playerList)
+        {
+
+            if (player.isAlive)
+                aliveList.Add(player.transform);
+        }
+
+        Transform lowestPlayer = null;
+
+        foreach(Transform t in aliveList)
+        {
+            if (t.position.y > this.transform.position.y)
+                return;
+
+            if (!lowestPlayer) lowestPlayer = t;
+
+            else if (t.position.y < lowestPlayer.position.y) lowestPlayer = t;
+        }
+
+        if (lowestPlayer) this.transform.position = new Vector3(lowestPlayer.position.x,
+                                                                 lowestPlayer.position.y - 40f,
+                                                                 lowestPlayer.position.z);
+                        
+
+
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
