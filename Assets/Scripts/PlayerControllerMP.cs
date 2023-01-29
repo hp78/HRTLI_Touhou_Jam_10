@@ -208,6 +208,10 @@ public class PlayerControllerMP : MonoBehaviour
                 obsBehav.PlayerHit();
             HitObstacle();
         }
+        if (collision.CompareTag("Snowboarder"))
+        {
+            HitObstacle();
+        }
 
         if (collision.CompareTag("Ramp"))
         {

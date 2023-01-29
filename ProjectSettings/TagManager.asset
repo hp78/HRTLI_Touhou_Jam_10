@@ -9,6 +9,7 @@ TagManager:
   - Ramp
   - YetiTrigger
   - WinZone
+  - Snowboarder
   layers:
   - Default
   - TransparentFX
