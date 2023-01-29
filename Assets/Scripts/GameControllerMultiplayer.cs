@@ -43,12 +43,10 @@ public class GameControllerMultiplayer : MonoBehaviour
     public Button startGameBtn;
 
     [Space(5)]
-<<<<<<< HEAD
     [SerializeField] BGM _mainBgm;
-=======
+
     public TMP_Text winTmp;
     public TMP_Text loseTmp;
->>>>>>> 0f3e754b209d44dd451f0f47cfbd9d8ea1e9a4bb
 
     // Start is called before the first frame update
     void Start()
