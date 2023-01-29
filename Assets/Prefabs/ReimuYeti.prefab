@@ -259,7 +259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _idle: {fileID: 1111056069936803414}
   _walk: {fileID: 6937879919235304387}
-  _speed: 10
+  _speed: 8
+  _speedUpMod: 2.5
+  _catchUpDistThreshold: 8
   _playerList: []
   _currentTarget: {fileID: 0}
   _currDirection: {x: 0, y: -1, z: 0}

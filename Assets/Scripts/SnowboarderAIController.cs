@@ -5,7 +5,11 @@ using UnityEngine;
 public class SnowboarderAIController : MonoBehaviour
 {
     [Space(5)]
-
+    [SerializeField] SpriteRenderer _sprite;
+    [SerializeField] Sprite _up;
+    [SerializeField] Sprite _side;
+    [SerializeField] Sprite _diagonal;
+    [SerializeField] Sprite _down;
     [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] float _speedModRange;
@@ -46,15 +50,20 @@ public class SnowboarderAIController : MonoBehaviour
     {
         _currDirection = (_targetDirection.position - transform.position).normalized;
         this.transform.position += (_currDirection * _speed) * Time.deltaTime;
+        _sprite.flipX = _currDirection.x < 0.0f;
 
+        if(_currDirection.y >0f) _sprite.sprite = _up;
+        else if (Mathf.Abs(_currDirection.x) > 0.6f) _sprite.sprite = _side;
+        else if (Mathf.Abs(_currDirection.x) > 0.3f) _sprite.sprite = _diagonal;
+        else _sprite.sprite = _down;
     }
 
     IEnumerator ChangeDirection()
     {
-        newTarget = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 0f),0f);
+        newTarget = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 0.125f),0f);
         float xdif = newTarget.x - _targetDirection.localPosition.x;
         float ydif = newTarget.y - _targetDirection.localPosition.y;
-        float randomCooldown = Random.Range(1f, 2f);
+        float randomCooldown = Random.Range(0.5f, 2f);
 
         while(randomCooldown>0f)
         {
@@ -66,7 +75,7 @@ public class SnowboarderAIController : MonoBehaviour
 
 
         }
-        _changeDirectionCooldown = Random.Range(1f, 2f);
+        _changeDirectionCooldown = Random.Range(0.5f, 2f);
         _changingDirection = false ;
 
         yield return 0;
