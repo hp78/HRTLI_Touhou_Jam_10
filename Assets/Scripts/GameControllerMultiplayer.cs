@@ -38,8 +38,8 @@ public class GameControllerMultiplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 0f;
         instance = this;
-
         InitializeObstacles();
     }
 
@@ -71,6 +71,8 @@ public class GameControllerMultiplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateLobby();
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             if (Time.timeScale == 0f)
@@ -119,6 +121,11 @@ public class GameControllerMultiplayer : MonoBehaviour
         }
     }
 
+    public void UpdateLobby()
+    {
+
+    }
+
     public void AddPlayer(PlayerControllerMP pcmp)
     {
         _players.Add(pcmp);
@@ -149,7 +156,6 @@ public class GameControllerMultiplayer : MonoBehaviour
     public void LooseGame()
     {
         loosePanel.SetActive(true);
-        Time.timeScale = 0f;
     }
 
     public void PauseGame()
