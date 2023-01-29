@@ -54,7 +54,10 @@ public class PlayerControllerMP : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
         transform.position += new Vector3(pIndex * 3f, 0);
-        GameControllerMultiplayer.instance.AddPlayer(this);
+
+        string joinMsg = "Player" + pIndex + "(" + playerInput.currentControlScheme + ") has joined\n";
+
+        GameControllerMultiplayer.instance.AddPlayer(this, joinMsg);
 
         spriteNormalRight = sprites[(pIndex % 5) * 8 + 0];
         spriteNormalDownRight = sprites[(pIndex % 5) * 8 + 1];
