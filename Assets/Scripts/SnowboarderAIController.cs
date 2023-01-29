@@ -11,6 +11,7 @@ public class SnowboarderAIController : MonoBehaviour
     [SerializeField] Sprite _diagonal;
     [SerializeField] Sprite _down;
     [SerializeField] Sprite _crash;
+    [SerializeField] ParticleSystem _snowParticles;
     [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] Collider2D _col;
@@ -162,7 +163,7 @@ public class SnowboarderAIController : MonoBehaviour
             _crashed = true;
             _crashDuration = 1.5f;
             _sprite.sprite = _crash;
-
+            _snowParticles.Play();
         }
 
         if(collision.CompareTag("Player"))
@@ -171,6 +172,7 @@ public class SnowboarderAIController : MonoBehaviour
             _crashDuration = 2.5f;
             _sprite.sprite = _crash;
             _col.enabled = false;
+            _snowParticles.Play();
 
         }
     }

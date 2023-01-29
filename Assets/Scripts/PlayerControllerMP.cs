@@ -9,6 +9,9 @@ public class PlayerControllerMP : MonoBehaviour
     //bool isMouse = false;
 
     [SerializeField] GameObject _pfBloodstain;
+    [SerializeField] ParticleSystem _particleSnow;
+    [SerializeField] AudioSource _crashWoompSFX;
+
 
     [Space(5)]
     BoxCollider2D _boxCollider;
@@ -189,6 +192,8 @@ public class PlayerControllerMP : MonoBehaviour
         _currSpeed = 0f;
         StartCoroutine(DisableCollisionForSeconds(1));
         StartCoroutine(DisableInputForSeconds(0.5f));
+        _particleSnow.Play();
+        _crashWoompSFX.Play();
     }
 
     void GetEaten()

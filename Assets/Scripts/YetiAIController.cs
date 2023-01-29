@@ -7,6 +7,7 @@ public class YetiAIController : MonoBehaviour
     [Space(5)]
     [SerializeField] SpriteRenderer _idle;
     [SerializeField] SpriteRenderer _walk;
+    [SerializeField] ParticleSystem _bloodsplatter;
 
     [Space(5)]
     [SerializeField] float _speed;
@@ -18,6 +19,7 @@ public class YetiAIController : MonoBehaviour
     [SerializeField] Transform _currentTarget = null;
     [SerializeField] Vector3 _currDirection;
 
+    
 
     float _checkDistanceCooldown;
     DistanceComparer distanceComparer;
@@ -107,6 +109,7 @@ public class YetiAIController : MonoBehaviour
         {
             _playerList.Remove(collision.gameObject.transform);
             CheckDistanceWithPlayers();
+            _bloodsplatter.Play();
         }
     }
 
