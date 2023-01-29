@@ -10,6 +10,7 @@ TagManager:
   - YetiTrigger
   - WinZone
   - Snowboarder
+  - BGM
   layers:
   - Default
   - TransparentFX

@@ -41,12 +41,19 @@ public class GameControllerMultiplayer : MonoBehaviour
     public TMP_Text lobbyTmp;
     public Button startGameBtn;
 
+    [Space(5)]
+    [SerializeField] BGM _mainBgm;
+
     // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 0f;
         instance = this;
         InitializeObstacles();
+
+        _mainBgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
+        _mainBgm.CallFader(false);
+
     }
 
     void InitializeObstacles()
@@ -165,6 +172,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     {
         Time.timeScale = 1f;
         playerInputManager.DisableJoining();
+        _mainBgm.CallFader(true);
     }
 
     public void LooseGame()
@@ -186,6 +194,7 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     public void RestartGame()
     {
+
         SceneManager.LoadScene("MainMultiplayer");
     }
 
@@ -198,4 +207,6 @@ public class GameControllerMultiplayer : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+  
 }
