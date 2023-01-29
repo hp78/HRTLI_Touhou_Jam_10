@@ -48,6 +48,11 @@ public class YetiAIController : MonoBehaviour
         _checkDistanceCooldown -= Time.deltaTime;
     }
 
+    public void AddPlayer(Transform playerTF)
+    {
+        _playerList.Add(playerTF);
+    }
+
     void ChaseTarget()
     {
         _currDirection = (_currentTarget.position - transform.position).normalized;

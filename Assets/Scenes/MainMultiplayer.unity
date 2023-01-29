@@ -262,14 +262,18 @@ MonoBehaviour:
   mainCam: {fileID: 1633898839}
   playerInputManager: {fileID: 494580643}
   horizontalRange: 50
-  verticalRange: 250
-  density: 600
+  verticalRange: 500
+  density: 1200
   obstacleParent: {fileID: 154382431}
-  pfTreeObstacle0: {fileID: 3996111962302220741, guid: f6336ae63f443944f8bd093c528c0d9a, type: 3}
-  pfTreeObstacle1: {fileID: 3996111962302220741, guid: e0353d8c90f0ee641b1ea3419d97f0e3, type: 3}
-  pfTreeObstacle2: {fileID: 3996111962302220741, guid: eb790798716fe7e4aaf813bf01422b6f, type: 3}
-  pfRockObstacle: {fileID: 3996111962302220741, guid: 8c68e83f410457e40b850dee12da916c, type: 3}
-  pfHoleObstacle: {fileID: 3996111962302220741, guid: 7314644808187ea49a7a24f4db5fdef9, type: 3}
+  pfYeti: {fileID: 8159114806605735332, guid: a8e4fa0a8a3961a4ab7b91d45a69f2e6, type: 3}
+  obstacles:
+  - {fileID: 3996111962302220741, guid: f6336ae63f443944f8bd093c528c0d9a, type: 3}
+  - {fileID: 3996111962302220741, guid: e0353d8c90f0ee641b1ea3419d97f0e3, type: 3}
+  - {fileID: 3996111962302220741, guid: eb790798716fe7e4aaf813bf01422b6f, type: 3}
+  - {fileID: 3996111962302220741, guid: 8c68e83f410457e40b850dee12da916c, type: 3}
+  - {fileID: 3996111962302220741, guid: 1063dfa13a53e06418ddf9aeefa71398, type: 3}
+  - {fileID: 3996111962302220741, guid: 7314644808187ea49a7a24f4db5fdef9, type: 3}
+  - {fileID: 7491566553100175079, guid: c400a42e3f6204049ad01d7742bef3d4, type: 3}
 --- !u!4 &650140528
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +288,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &965186989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965186991}
+  - component: {fileID: 965186990}
+  m_Layer: 0
+  m_Name: YetiSpawnTrigger
+  m_TagString: YetiTrigger
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &965186990
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965186989}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &965186991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965186989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633898837
 GameObject:

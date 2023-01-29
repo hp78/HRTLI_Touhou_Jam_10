@@ -10,7 +10,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     float targetCamSize = 7;
     public PlayerInputManager playerInputManager;
 
-    List<Transform> playerTransforms = new List<Transform>();
+    List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
 
     [Space(5)]
     public float horizontalRange;
@@ -21,11 +21,11 @@ public class GameControllerMultiplayer : MonoBehaviour
     public Transform obstacleParent;
 
     [Space(5)]
-    public GameObject pfTreeObstacle0;
-    public GameObject pfTreeObstacle1;
-    public GameObject pfTreeObstacle2;
-    public GameObject pfRockObstacle;
-    public GameObject pfHoleObstacle;
+    bool _isYetiSpawned = false;
+    [SerializeField] GameObject pfYeti;
+
+    [Space(5)]
+    public GameObject[] obstacles;
 
     // Start is called before the first frame update
     void Start()
@@ -41,26 +41,7 @@ public class GameControllerMultiplayer : MonoBehaviour
         {
             GameObject go;
 
-            if (i % 5 == 0)
-            {
-                go = Instantiate(pfTreeObstacle0, obstacleParent);
-            }
-            else if (i % 5 == 1)
-            {
-                go = Instantiate(pfTreeObstacle1, obstacleParent);
-            }
-            else if (i % 5 == 2)
-            {
-                go = Instantiate(pfTreeObstacle2, obstacleParent);
-            }
-            else if (i % 5 == 3)
-            {
-                go = Instantiate(pfRockObstacle, obstacleParent);
-            }
-            else
-            {
-                go = Instantiate(pfHoleObstacle, obstacleParent);
-            }
+            go = Instantiate(obstacles[i % (obstacles.Length)], obstacleParent);
 
             go.transform.position = new Vector3(
                 Random.Range(-horizontalRange, horizontalRange),
@@ -71,25 +52,25 @@ public class GameControllerMultiplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int playerCount = playerTransforms.Count;
+        int playerCount = _players.Count;
 
 
         if (playerCount > 0)
         {
-            float smallestX = playerTransforms[0].position.x;
-            float largestX = playerTransforms[0].position.x;
-            float smallestY = playerTransforms[0].position.y;
-            float largestY = playerTransforms[0].position.y;
+            float smallestX = _players[0].transform.position.x;
+            float largestX = _players[0].transform.position.x;
+            float smallestY = _players[0].transform.position.y;
+            float largestY = _players[0].transform.position.y;
 
             Vector3 addedPos = Vector3.zero;
-            foreach(Transform t in playerTransforms)
+            foreach(PlayerControllerMP p in _players)
             {
-                addedPos += t.position;
+                addedPos += p.transform.position;
 
-                smallestX = (t.position.x < smallestX) ? t.position.x : smallestX;
-                largestX = (t.position.x > smallestX) ? t.position.x : largestX;
-                smallestY = (t.position.y < smallestY) ? t.position.y : smallestY;
-                largestY = (t.position.y > largestY) ? t.position.y : largestY;
+                smallestX = (p.transform.position.x < smallestX) ? p.transform.position.x : smallestX;
+                largestX = (p.transform.position.x > smallestX) ? p.transform.position.x : largestX;
+                smallestY = (p.transform.position.y < smallestY) ? p.transform.position.y : smallestY;
+                largestY = (p.transform.position.y > largestY) ? p.transform.position.y : largestY;
             }
             addedPos /= playerCount;
             addedPos += new Vector3(0, -1, -10);
@@ -109,8 +90,24 @@ public class GameControllerMultiplayer : MonoBehaviour
         }
     }
 
-    public void AddPlayerTransform(Transform tf)
+    public void AddPlayer(PlayerControllerMP tf)
     {
-        playerTransforms.Add(tf);
+        _players.Add(tf);
+    }
+
+    public void SpawnYeti()
+    {
+        if (_isYetiSpawned)
+            return;
+
+        _isYetiSpawned = true;
+
+        GameObject yeti = Instantiate(pfYeti);
+        YetiAIController yetiAI = yeti.GetComponent<YetiAIController>();
+
+        foreach(PlayerControllerMP player in _players)
+        {
+            yetiAI.AddPlayer(player.transform);
+        }
     }
 }

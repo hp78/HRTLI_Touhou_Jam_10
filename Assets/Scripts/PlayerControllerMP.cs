@@ -49,21 +49,23 @@ public class PlayerControllerMP : MonoBehaviour
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
         transform.position += new Vector3(pIndex * 3f, 0);
-        GameControllerMultiplayer.instance.AddPlayerTransform(transform);
+        GameControllerMultiplayer.instance.AddPlayer(this);
 
         if(playerInput.currentControlScheme == "Mouse")
         {
             isMouse = true;
         }
 
-        spriteNormalRight = sprites[(pIndex) * 8 + 0];
-        spriteNormalDownRight = sprites[(pIndex) * 8 + 1];
-        spriteNormalTopRight = sprites[(pIndex) * 8 + 2];
-        spriteNormalDown = sprites[(pIndex) * 8 + 3];
-        spriteNormalTop = sprites[(pIndex) * 8 + 4];
-        spriteJump1 = sprites[(pIndex) * 8 + 5];
-        spriteJump2 = sprites[(pIndex) * 8 + 6];
-        spriteFumble = sprites[(pIndex) * 8 + 7];
+        spriteNormalRight = sprites[(pIndex % 4) * 8 + 0];
+        spriteNormalDownRight = sprites[(pIndex % 4) * 8 + 1];
+        spriteNormalTopRight = sprites[(pIndex % 4) * 8 + 2];
+        spriteNormalDown = sprites[(pIndex % 4) * 8 + 3];
+        spriteNormalTop = sprites[(pIndex % 4) * 8 + 4];
+        spriteJump1 = sprites[(pIndex % 4) * 8 + 5];
+        spriteJump2 = sprites[(pIndex % 4) * 8 + 6];
+        spriteFumble = sprites[(pIndex % 4) * 8 + 7];
+
+        spriteRender.sprite = spriteNormalDownRight;
     }
 
     // Update is called once per frame
@@ -198,12 +200,21 @@ public class PlayerControllerMP : MonoBehaviour
         if (collision.CompareTag("Obstacle") && collision.gameObject != _currObstacle)
         {
             _currObstacle = collision.gameObject;
+            ObstacleBehaviour obsBehav = _currObstacle.GetComponent<ObstacleBehaviour>();
+
+            if(obsBehav != null)
+                obsBehav.PlayerHit();
             HitObstacle();
         }
 
-        if(collision.CompareTag("Ramp"))
+        if (collision.CompareTag("Ramp"))
         {
             StartCoroutine(RampJump());
+        }
+
+        if (collision.CompareTag("YetiTrigger"))
+        {
+            GameControllerMultiplayer.instance.SpawnYeti();
         }
     }
 }
