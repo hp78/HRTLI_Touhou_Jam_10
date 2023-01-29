@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class GameControllerMultiplayer : MonoBehaviour
 {
     public static GameControllerMultiplayer instance;
@@ -34,6 +36,10 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     public GameObject pfChen;
     public GameObject pfSnowboarder;
+
+    [Space(5)]
+    public TMP_Text lobbyTmp;
+    public Button startGameBtn;
 
     // Start is called before the first frame update
     void Start()
@@ -126,9 +132,11 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     }
 
-    public void AddPlayer(PlayerControllerMP pcmp)
+    public void AddPlayer(PlayerControllerMP pcmp, string joinMessage = "")
     {
         _players.Add(pcmp);
+        lobbyTmp.text += joinMessage;
+        startGameBtn.interactable = true;
     }
 
     public void RemovePlayer(PlayerControllerMP pcmp)
@@ -151,6 +159,12 @@ public class GameControllerMultiplayer : MonoBehaviour
     {
         winPanel.SetActive(true);
         Time.timeScale = 0f;
+    }
+
+    public void StartGame()
+    {
+        Time.timeScale = 1f;
+        playerInputManager.DisableJoining();
     }
 
     public void LooseGame()
