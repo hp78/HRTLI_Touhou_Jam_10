@@ -270,8 +270,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.9
+    height: 0.9
 --- !u!4 &494580644
 Transform:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   playerInputManager: {fileID: 494580643}
   horizontalRange: 50
   verticalRange: 500
-  density: 1200
+  density: 1500
   obstacleParent: {fileID: 154382431}
   pfYeti: {fileID: 8159114806605735332, guid: a8e4fa0a8a3961a4ab7b91d45a69f2e6, type: 3}
   obstacles:
@@ -329,6 +329,7 @@ MonoBehaviour:
   - {fileID: 3996111962302220741, guid: eb790798716fe7e4aaf813bf01422b6f, type: 3}
   - {fileID: 3996111962302220741, guid: 8c68e83f410457e40b850dee12da916c, type: 3}
   - {fileID: 3996111962302220741, guid: 1063dfa13a53e06418ddf9aeefa71398, type: 3}
+  - {fileID: 3996111962302220741, guid: 7b779a08b2b27ec4bbdc0b73b8d0e6ff, type: 3}
   - {fileID: 3996111962302220741, guid: 7314644808187ea49a7a24f4db5fdef9, type: 3}
   - {fileID: 7491566553100175079, guid: c400a42e3f6204049ad01d7742bef3d4, type: 3}
 --- !u!4 &650140528

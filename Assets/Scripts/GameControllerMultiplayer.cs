@@ -76,11 +76,10 @@ public class GameControllerMultiplayer : MonoBehaviour
             addedPos += new Vector3(0, -1, -10);
 
             mainCam.transform.position = 
-                Vector3.Lerp(mainCam.transform.position, addedPos, 0.5f);
+                Vector3.Lerp(mainCam.transform.position, addedPos, 0.1f);
 
             if (playerCount > 1)
             {
-                //Vector2 crossDistance = new Vector2(largestX - smallestX, largestY - smallestY);
                 float largestDistance = 
                     (((largestX - smallestX)*2) > (largestY - smallestY)) ?
                     ((largestX - smallestX)*2)  : (largestY - smallestY);
