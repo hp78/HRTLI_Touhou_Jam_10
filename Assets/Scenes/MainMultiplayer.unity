@@ -2700,8 +2700,8 @@ MonoBehaviour:
   lobbyTmp: {fileID: 725466460}
   startGameBtn: {fileID: 449025331}
   _mainBgm: {fileID: 0}
-  winTmp: {fileID: 0}
-  loseTmp: {fileID: 0}
+  winTmp: {fileID: 319702624}
+  loseTmp: {fileID: 570385506}
 --- !u!4 &650140528
 Transform:
   m_ObjectHideFlags: 0
