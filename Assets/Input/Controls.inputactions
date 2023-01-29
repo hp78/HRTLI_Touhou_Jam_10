@@ -312,50 +312,6 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "up",
-                    "id": "88defce8-d210-4880-a1af-e9ebd8f1909d",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "a6850d54-8872-4cd8-b6d5-3c1a4622c6f6",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "c0963f88-770b-46fa-8dd8-93900bf9e8fb",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "736667a6-855a-4e1a-8aec-398f609ebed6",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "f0e8620d-8e6c-4a56-a437-85b62a788368",
                     "path": "<Keyboard>/space",
@@ -409,28 +365,6 @@
                     "action": "Select",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "df67a926-1351-4540-8200-32f1473b76bc",
-                    "path": "<XRController>{LeftHand}/touchpadClick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e7f8010-e2af-4968-bd84-df0ff7db5179",
-                    "path": "<XRController>{LeftHand}/joystickClicked",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "LeffXRController",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
@@ -475,17 +409,6 @@
             "devices": [
                 {
                     "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "LeffXRController",
-            "bindingGroup": "LeffXRController",
-            "devices": [
-                {
-                    "devicePath": "<XRController>{LeftHand}",
                     "isOptional": false,
                     "isOR": false
                 }

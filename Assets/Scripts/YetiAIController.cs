@@ -10,6 +10,8 @@ public class YetiAIController : MonoBehaviour
 
     [Space(5)]
     [SerializeField] float _speed;
+    [SerializeField] float _speedUpMod;
+    [SerializeField] float _catchUpDistThreshold = 6;
     [SerializeField] List<Transform> _playerList = new List<Transform>();
 
     [Space(5)]
@@ -19,7 +21,7 @@ public class YetiAIController : MonoBehaviour
 
     float _checkDistanceCooldown;
     DistanceComparer distanceComparer;
-    
+    PlayerControllerMP _currentPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +43,7 @@ public class YetiAIController : MonoBehaviour
             if (_checkDistanceCooldown < 0f)
             {
                 CheckDistanceWithPlayers();
-                _checkDistanceCooldown = Random.Range(1f, 3f);
+                _checkDistanceCooldown = Random.Range(0.5f, 1f);
             }
         }
 
@@ -51,29 +53,50 @@ public class YetiAIController : MonoBehaviour
     public void AddPlayer(Transform playerTF)
     {
         _playerList.Add(playerTF);
+        CheckDistanceWithPlayers();
     }
 
     void ChaseTarget()
     {
+        
+
+        float totalSpeed;
+        if (Vector3.Distance(_currentTarget.position, transform.position) > _catchUpDistThreshold) totalSpeed = _speed * _speedUpMod;
+        else totalSpeed = _speed;
+
         _currDirection = (_currentTarget.position - transform.position).normalized;
-        this.transform.position += (_currDirection * _speed) * Time.deltaTime;
+
+        this.transform.position += (_currDirection * totalSpeed) * Time.deltaTime;
         _walk.flipX = _currDirection.x < 0.0f;
+
+        if(_currentPlayer)
+        if(!_currentPlayer.isAlive)
+        {
+            _playerList.Remove(_currentPlayer.transform);
+            CheckDistanceWithPlayers();
+        }
     }
 
     void CheckDistanceWithPlayers()
     {
-        _playerList.Sort(distanceComparer);
         if (_playerList.Count >= 1)
         {
+            _playerList.Sort(distanceComparer);
+
             _currentTarget = _playerList[0];
+            _currentPlayer = _playerList[0].GetComponent<PlayerControllerMP>();
+
             _walk.gameObject.SetActive(true);
             _idle.gameObject.SetActive(false);
         }
         else
         {
             _currentTarget = null;
+            _currentPlayer = null;
             _walk.gameObject.SetActive(false);
             _idle.gameObject.SetActive(true);
+
+            GameControllerMultiplayer.instance.LooseGame();
         }
 
     }
@@ -86,6 +109,7 @@ public class YetiAIController : MonoBehaviour
             CheckDistanceWithPlayers();
         }
     }
+
     public class DistanceComparer : IComparer<Transform>
     {
         private Transform target;

@@ -6,7 +6,7 @@ public class PlayerControllerMP : MonoBehaviour
 {
     public bool isAlive = true;
     public PlayerInput playerInput;
-    bool isMouse = false;
+    //bool isMouse = false;
 
     [SerializeField] GameObject _pfBloodstain;
 
@@ -55,11 +55,6 @@ public class PlayerControllerMP : MonoBehaviour
         Debug.Log(playerInput.currentControlScheme + " joined");
         transform.position += new Vector3(pIndex * 3f, 0);
         GameControllerMultiplayer.instance.AddPlayer(this);
-
-        if(playerInput.currentControlScheme == "Mouse")
-        {
-            isMouse = true;
-        }
 
         spriteNormalRight = sprites[(pIndex % 5) * 8 + 0];
         spriteNormalDownRight = sprites[(pIndex % 5) * 8 + 1];
@@ -211,6 +206,10 @@ public class PlayerControllerMP : MonoBehaviour
 
             if(obsBehav != null)
                 obsBehav.PlayerHit();
+            HitObstacle();
+        }
+        if (collision.CompareTag("Snowboarder"))
+        {
             HitObstacle();
         }
 
