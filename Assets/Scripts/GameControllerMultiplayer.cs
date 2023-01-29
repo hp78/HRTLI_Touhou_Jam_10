@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 public class GameControllerMultiplayer : MonoBehaviour
 {
     public static GameControllerMultiplayer instance;
@@ -11,6 +11,11 @@ public class GameControllerMultiplayer : MonoBehaviour
     public PlayerInputManager playerInputManager;
 
     List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
+
+    [Space(5)]
+    public GameObject pausePanel;
+    public GameObject winPanel;
+    public GameObject loosePanel;
 
     [Space(5)]
     public float horizontalRange;
@@ -52,8 +57,15 @@ public class GameControllerMultiplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int playerCount = _players.Count;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0f)
+                ResumeGame();
+            else
+                PauseGame();
+        }
 
+        int playerCount = _players.Count;
 
         if (playerCount > 0)
         {
@@ -76,7 +88,7 @@ public class GameControllerMultiplayer : MonoBehaviour
             addedPos += new Vector3(0, -1, -10);
 
             mainCam.transform.position = 
-                Vector3.Lerp(mainCam.transform.position, addedPos, 0.1f);
+                Vector3.Lerp(mainCam.transform.position, addedPos, Time.deltaTime * 10f);
 
             if (playerCount > 1)
             {
@@ -85,13 +97,22 @@ public class GameControllerMultiplayer : MonoBehaviour
                     ((largestX - smallestX)*2)  : (largestY - smallestY);
                 targetCamSize = Mathf.Clamp(largestDistance * 0.5f + 3f, 6, 50);
             }
+            else
+            {
+                targetCamSize = 6;
+            }
             mainCam.orthographicSize = Mathf.Lerp(mainCam.orthographicSize, targetCamSize, 0.1f);
         }
     }
 
-    public void AddPlayer(PlayerControllerMP tf)
+    public void AddPlayer(PlayerControllerMP pcmp)
     {
-        _players.Add(tf);
+        _players.Add(pcmp);
+    }
+
+    public void RemovePlayer(PlayerControllerMP pcmp)
+    {
+        _players.Remove(pcmp);
     }
 
     public void SpawnYeti()
@@ -103,10 +124,38 @@ public class GameControllerMultiplayer : MonoBehaviour
 
         GameObject yeti = Instantiate(pfYeti);
         YetiAIController yetiAI = yeti.GetComponent<YetiAIController>();
+    }
 
-        foreach(PlayerControllerMP player in _players)
-        {
-            yetiAI.AddPlayer(player.transform);
-        }
+    public void WinGame()
+    {
+        winPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void PauseGame()
+    {
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("MainMultiplayer");
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_STANDALONE
+        Application.Quit();
+#endif
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 }

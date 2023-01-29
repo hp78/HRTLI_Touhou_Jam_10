@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Ramp
   - YetiTrigger
+  - WinZone
   layers:
   - Default
   - TransparentFX

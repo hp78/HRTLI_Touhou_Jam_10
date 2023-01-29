@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerControllerMP : MonoBehaviour
 {
+    public bool isAlive = true;
     public PlayerInput playerInput;
     bool isMouse = false;
+
+    [SerializeField] GameObject _pfBloodstain;
 
     [Space(5)]
     BoxCollider2D _boxCollider;
@@ -45,6 +48,8 @@ public class PlayerControllerMP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+
         int pIndex = playerInput.playerIndex;
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
@@ -79,7 +84,7 @@ public class PlayerControllerMP : MonoBehaviour
         => movementInput = ctx.ReadValue<Vector2>();
     void UpdateInput()
     {
-        if (!_inputActive)
+        if (!_inputActive || !isAlive)
             return;
 
         Vector3 inputDirection = _currDirection;
@@ -186,13 +191,15 @@ public class PlayerControllerMP : MonoBehaviour
         _currSpeed = 0f;
         StartCoroutine(DisableCollisionForSeconds(1));
         StartCoroutine(DisableInputForSeconds(0.5f));
-
-        // change sprite
     }
 
     void GetEaten()
     {
         // lol die
+        isAlive = false;
+        Instantiate(_pfBloodstain, transform.position, Quaternion.identity);
+        GameControllerMultiplayer.instance.RemovePlayer(this);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -215,6 +222,16 @@ public class PlayerControllerMP : MonoBehaviour
         if (collision.CompareTag("YetiTrigger"))
         {
             GameControllerMultiplayer.instance.SpawnYeti();
+        }
+
+        if (collision.CompareTag("Yeti"))
+        {
+            GetEaten();
+        }
+
+        if (collision.CompareTag("WinZone"))
+        {
+            GameControllerMultiplayer.instance.WinGame();
         }
     }
 }

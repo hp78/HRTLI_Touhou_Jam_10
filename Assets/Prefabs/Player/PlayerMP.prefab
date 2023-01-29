@@ -183,7 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e15de96d1b190b74ab4941b328aaaffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 1
   playerInput: {fileID: 1446267625833217916}
+  _pfBloodstain: {fileID: 4139634830616746482, guid: 177c32c1658385b43acf72afff61b9fe, type: 3}
   spriteRender: {fileID: 1031969029454386769}
   sprites:
   - {fileID: 1420054810, guid: 6d4b1c8941e86504fa5d05c172465f14, type: 3}
