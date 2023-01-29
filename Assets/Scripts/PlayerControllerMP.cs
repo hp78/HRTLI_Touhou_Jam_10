@@ -58,7 +58,7 @@ public class PlayerControllerMP : MonoBehaviour
         Debug.Log(playerInput.currentControlScheme + " joined");
         transform.position += new Vector3(pIndex * 3f, 0);
 
-        string joinMsg = "Player" + pIndex + "(" + playerInput.currentControlScheme + ") has joined\n";
+        string joinMsg = "Player" + (pIndex+1) + " (" + playerInput.currentControlScheme + ") has joined\n";
 
         GameControllerMultiplayer.instance.AddPlayer(this, joinMsg);
 
