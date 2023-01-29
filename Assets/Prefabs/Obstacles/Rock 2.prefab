@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3996111962302220738}
   - component: {fileID: 3996111962302220737}
   m_Layer: 0
-  m_Name: Tree 1
+  m_Name: Rock 2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1173384121, guid: 8423b0f9e5746ee4683129bbdadf798f, type: 3}
+  m_Sprite: {fileID: -326682557, guid: 8423b0f9e5746ee4683129bbdadf798f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.5}
+  m_Size: {x: 0.5, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &3996111962302220737
 MonoBehaviour:
