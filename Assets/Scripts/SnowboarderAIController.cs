@@ -23,7 +23,8 @@ public class SnowboarderAIController : MonoBehaviour
     [Space(5)]
     [SerializeField] float _catchUpDistThreshold = 12;
     [SerializeField] float _speedMod = 12;
-    [SerializeField] List<Transform> _playerList = new List<Transform>();
+
+    [SerializeField] List<PlayerControllerMP> _playerList = new List<PlayerControllerMP>();
 
 
     float _changeDirectionCooldown;
@@ -35,13 +36,11 @@ public class SnowboarderAIController : MonoBehaviour
 
     public Vector3 newTarget;
     GameObject _currObstacle = null;
-    DistanceComparer distanceComparer;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        distanceComparer = new DistanceComparer(transform);
 
     }
 
@@ -49,7 +48,9 @@ public class SnowboarderAIController : MonoBehaviour
     void Update()
     {
         if (!_crashed)
+        {
             Movement();
+        }
         else
         {
             _crashDuration -= Time.deltaTime;
@@ -61,33 +62,25 @@ public class SnowboarderAIController : MonoBehaviour
             }
         }
 
+
+        
         if (_changeDirectionCooldown < 0f)
         {
             if (!_changingDirection)
             {
+                CheckPlayerDistance();
                 _changingDirection = true;
-                StartCoroutine( ChangeDirection());
+                StartCoroutine(ChangeDirection());
             }
         }
         _changeDirectionCooldown -= Time.deltaTime;
     }
 
 
-    void CheckPlayerDistance()
-    {
-        if(_playerList.Count <1)
-        {
-            var temp = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject go in temp) _playerList.Add(go.transform);
-        }
-
-        _playerList.Sort(distanceComparer);
-
-    }
-
     void Movement()
     {
         if (_currentSpeed < _speed) _currentSpeed += 2 *Time.deltaTime;
+
         _currDirection = (_targetDirection.position - transform.position).normalized;
         this.transform.position += (_currDirection * _currentSpeed) * Time.deltaTime;
         _sprite.flipX = _currDirection.x < 0.0f;
@@ -100,7 +93,7 @@ public class SnowboarderAIController : MonoBehaviour
 
     IEnumerator ChangeDirection()
     {
-        newTarget = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 0.1f),0f);
+        newTarget = new Vector3(Random.Range(-0.75f, .75f), Random.Range(-1f, -0.1f),0f);
         float xdif = newTarget.x - _targetDirection.localPosition.x;
         float ydif = newTarget.y - _targetDirection.localPosition.y;
         float randomCooldown = Random.Range(0.5f, 2f);
@@ -121,6 +114,45 @@ public class SnowboarderAIController : MonoBehaviour
         yield return 0;
 
         
+    }
+
+    void CheckPlayerDistance()
+    {
+        var temp = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject go in temp)
+        {
+            var tempplayer = go.GetComponent<PlayerControllerMP>();
+            if (!_playerList.Contains(tempplayer))
+                _playerList.Add(go.GetComponent<PlayerControllerMP>());
+        }
+
+        if (_playerList.Count == 0) return;
+
+
+        List<Transform> aliveList = new List<Transform>();
+        foreach (PlayerControllerMP player in _playerList)
+        {
+
+            if (player.isAlive)
+                aliveList.Add(player.transform);
+        }
+
+        if (aliveList.Count < 1) return;
+
+        foreach (Transform t in aliveList)
+        {
+            if (Vector3.Distance(t.transform.position, this.transform.position) <_catchUpDistThreshold)
+                return;
+
+
+        }
+
+        Transform randomPlayer = aliveList[Random.Range(0, aliveList.Count)];
+        if (randomPlayer) this.transform.position = new Vector3(randomPlayer.position.x + Random.Range(-10f, 10f),
+                                                                 randomPlayer.position.y + Random.Range(10f, 15f) * (Random.Range(0, 2) * 2 - 1),
+                                                                 randomPlayer.position.z);
+
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

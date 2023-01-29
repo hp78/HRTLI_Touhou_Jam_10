@@ -92,7 +92,7 @@ public class ChenAiController : MonoBehaviour
         }
 
         if (lowestPlayer) this.transform.position = new Vector3(lowestPlayer.position.x,
-                                                                 lowestPlayer.position.y - 40f,
+                                                                 lowestPlayer.position.y - Random.Range(30f ,50f),
                                                                  lowestPlayer.position.z);
                         
 

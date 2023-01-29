@@ -127,7 +127,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -144,16 +144,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.25
-        value: 0.75
-        inSlope: 2.9805791
-        outSlope: 2.9805791
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5
+        time: 0.11785889
         value: 1
         inSlope: 0.036621466
         outSlope: 0.036621466
@@ -161,6 +152,15 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.31937176
         outWeight: 0
+      - serializedVersion: 3
+        time: 0.19729614
+        value: 1
+        inSlope: 2.9805791
+        outSlope: 2.9805791
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -255,12 +255,14 @@ MonoBehaviour:
   _diagonal: {fileID: 1323308710, guid: f8403137a9a088c4988f9fa5f6fa2653, type: 3}
   _down: {fileID: 992858172, guid: f8403137a9a088c4988f9fa5f6fa2653, type: 3}
   _crash: {fileID: 310155617, guid: f8403137a9a088c4988f9fa5f6fa2653, type: 3}
-  _speed: 8
-  _speedModRange: 0
+  _speed: 15
   _col: {fileID: 5383716803571991018}
   _currDirection: {x: 0, y: 0, z: 0}
   _targetDirection: {fileID: 9156762589763706}
   _directionChangeRate: 0
+  _catchUpDistThreshold: 12
+  _speedMod: 12
+  _playerList: []
   newTarget: {x: 0, y: 0, z: 0}
 --- !u!58 &5383716803571991018
 CircleCollider2D:
@@ -275,9 +277,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.15}
   serializedVersion: 2
-  m_Radius: 0.35
+  m_Radius: 0.2
 --- !u!1 &9156762589763701
 GameObject:
   m_ObjectHideFlags: 0
