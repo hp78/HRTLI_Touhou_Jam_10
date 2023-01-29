@@ -2087,7 +2087,7 @@ GameObject:
   - component: {fileID: 570385507}
   - component: {fileID: 570385506}
   m_Layer: 5
-  m_Name: WinMsgTxt
+  m_Name: LoseMsgTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,6 +2556,8 @@ MonoBehaviour:
   pfSnowboarder: {fileID: 9156762570115720, guid: d973098b7b05d8648914efe5ee85ca36, type: 3}
   lobbyTmp: {fileID: 725466460}
   startGameBtn: {fileID: 449025331}
+  winTmp: {fileID: 319702624}
+  loseTmp: {fileID: 570385506}
 --- !u!4 &650140528
 Transform:
   m_ObjectHideFlags: 0

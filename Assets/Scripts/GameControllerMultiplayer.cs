@@ -13,6 +13,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     public PlayerInputManager playerInputManager;
 
     List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
+    List<PlayerControllerMP> _playersPerma = new List<PlayerControllerMP>();
 
     [Space(5)]
     public GameObject pausePanel;
@@ -40,6 +41,10 @@ public class GameControllerMultiplayer : MonoBehaviour
     [Space(5)]
     public TMP_Text lobbyTmp;
     public Button startGameBtn;
+
+    [Space(5)]
+    public TMP_Text winTmp;
+    public TMP_Text loseTmp;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +140,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     public void AddPlayer(PlayerControllerMP pcmp, string joinMessage = "")
     {
         _players.Add(pcmp);
+        _playersPerma.Add(pcmp);
         lobbyTmp.text += joinMessage;
         startGameBtn.interactable = true;
     }
@@ -157,6 +163,20 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     public void WinGame()
     {
+        int bestPlayer = 0;
+        int bestDistance = 0;
+
+        foreach (PlayerControllerMP pcmp in _playersPerma)
+        {
+            if ((int)-pcmp.transform.position.y > bestDistance)
+            {
+                bestDistance = (int)(-pcmp.transform.position.y);
+                bestPlayer = pcmp.playerInput.playerIndex + 1;
+            }
+        }
+
+        winTmp.text = "MVP : <color=\"red\">Player " + bestPlayer;
+
         winPanel.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -169,6 +189,19 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     public void LooseGame()
     {
+        int bestPlayer = 0;
+        int bestDistance = 0;
+
+        foreach(PlayerControllerMP pcmp in _playersPerma)
+        {
+            if((int)-pcmp.transform.position.y > bestDistance)
+            {
+                bestDistance = (int)(-pcmp.transform.position.y);
+                bestPlayer = pcmp.playerInput.playerIndex + 1;
+            }
+        }
+
+        loseTmp.text = "MVP : <color=\"red\">Player " + bestPlayer + "<color=\"blue\"> (" + bestDistance + "m)";
         loosePanel.SetActive(true);
     }
 
