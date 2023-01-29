@@ -32,6 +32,9 @@ public class GameControllerMultiplayer : MonoBehaviour
     [Space(5)]
     public GameObject[] obstacles;
 
+    public GameObject pfChen;
+    public GameObject pfSnowboarder;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,17 @@ public class GameControllerMultiplayer : MonoBehaviour
             go.transform.position = new Vector3(
                 Random.Range(-horizontalRange, horizontalRange),
                 Random.Range(-verticalRange, verticalRange) - verticalRange, 0);
+        }
+
+        for(int i = 1; i < 10; ++i)
+        {
+            GameObject go;
+
+            go = Instantiate(pfChen, obstacleParent);
+            go.transform.position = new Vector3(0, -100f * i, 0);
+
+            go = Instantiate(pfSnowboarder, obstacleParent);
+            go.transform.position = new Vector3(0, -100f * i, 0);
         }
     }
 
@@ -129,6 +143,12 @@ public class GameControllerMultiplayer : MonoBehaviour
     public void WinGame()
     {
         winPanel.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void LooseGame()
+    {
+        loosePanel.SetActive(true);
         Time.timeScale = 0f;
     }
 

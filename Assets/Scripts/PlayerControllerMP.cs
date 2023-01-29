@@ -61,14 +61,14 @@ public class PlayerControllerMP : MonoBehaviour
             isMouse = true;
         }
 
-        spriteNormalRight = sprites[(pIndex % 4) * 8 + 0];
-        spriteNormalDownRight = sprites[(pIndex % 4) * 8 + 1];
-        spriteNormalTopRight = sprites[(pIndex % 4) * 8 + 2];
-        spriteNormalDown = sprites[(pIndex % 4) * 8 + 3];
-        spriteNormalTop = sprites[(pIndex % 4) * 8 + 4];
-        spriteJump1 = sprites[(pIndex % 4) * 8 + 5];
-        spriteJump2 = sprites[(pIndex % 4) * 8 + 6];
-        spriteFumble = sprites[(pIndex % 4) * 8 + 7];
+        spriteNormalRight = sprites[(pIndex % 5) * 8 + 0];
+        spriteNormalDownRight = sprites[(pIndex % 5) * 8 + 1];
+        spriteNormalTopRight = sprites[(pIndex % 5) * 8 + 2];
+        spriteNormalDown = sprites[(pIndex % 5) * 8 + 3];
+        spriteNormalTop = sprites[(pIndex % 5) * 8 + 4];
+        spriteJump1 = sprites[(pIndex % 5) * 8 + 5];
+        spriteJump2 = sprites[(pIndex % 5) * 8 + 6];
+        spriteFumble = sprites[(pIndex % 5) * 8 + 7];
 
         spriteRender.sprite = spriteNormalDownRight;
     }
