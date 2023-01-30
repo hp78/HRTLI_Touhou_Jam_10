@@ -242,5 +242,15 @@ public class PlayerControllerMP : MonoBehaviour
         {
             GameControllerMultiplayer.instance.WinGame();
         }
+
+        if (collision.CompareTag("KillZone"))
+        {
+            string playerName = "Player " + playerIndex;
+            GameControllerMultiplayer.instance.SendFeedInteraction(playerName, "Fell off the edge of Gensokyo", Color.green, new Color(1, 0, 1), spriteFumble);
+            GetEaten();
+
+            if (GameControllerMultiplayer.instance._players.Count < 1)
+                GameControllerMultiplayer.instance.LooseGame();
+        }
     }
 }

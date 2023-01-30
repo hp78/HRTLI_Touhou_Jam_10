@@ -11,6 +11,7 @@ TagManager:
   - WinZone
   - Snowboarder
   - BGM
+  - KillZone
   layers:
   - Default
   - TransparentFX
