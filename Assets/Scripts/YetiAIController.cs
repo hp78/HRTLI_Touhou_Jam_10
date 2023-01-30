@@ -68,7 +68,7 @@ public class YetiAIController : MonoBehaviour
 
         float totalSpeed;
         if (Vector3.Distance(_currentTarget.position, transform.position) > _catchUpDistThreshold) totalSpeed = _speed * _speedUpMod;
-        else totalSpeed = _speed;
+        else totalSpeed = _speed *Random.Range(0.8f,1f);
 
         _currDirection = (_currentTarget.position - transform.position).normalized;
 
