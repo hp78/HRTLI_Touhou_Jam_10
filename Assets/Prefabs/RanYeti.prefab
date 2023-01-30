@@ -165,6 +165,9 @@ MonoBehaviour:
   _playerList: []
   _currentTarget: {fileID: 0}
   _currDirection: {x: 0, y: 0, z: 0}
+  _interactionIcon: {fileID: 1308638046, guid: 2c88d5f5fa15a9f4f96bc2c3eddc4915, type: 3}
+  _unitName: Yakumo Ran
+  _spawnMessage: A 9-tailed fox is displeased
 --- !u!58 &4178491717967945633
 CircleCollider2D:
   m_ObjectHideFlags: 0

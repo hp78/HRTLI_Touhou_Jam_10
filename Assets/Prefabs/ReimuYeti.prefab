@@ -9953,6 +9953,9 @@ MonoBehaviour:
   _playerList: []
   _currentTarget: {fileID: 0}
   _currDirection: {x: 0, y: -1, z: 0}
+  _interactionIcon: {fileID: 188983944, guid: 2c88d5f5fa15a9f4f96bc2c3eddc4915, type: 3}
+  _unitName: Reimu
+  _spawnMessage: The indomitable Reimu has appeared
 --- !u!58 &8159114806605735328
 CircleCollider2D:
   m_ObjectHideFlags: 0

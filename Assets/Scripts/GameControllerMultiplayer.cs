@@ -43,6 +43,11 @@ public class GameControllerMultiplayer : MonoBehaviour
     public Button startGameBtn;
 
     [Space(5)]
+    public Transform feedContainer;
+    public GameObject pfInteractionFeed;
+    public GameObject pfEventFeed;
+
+    [Space(5)]
     [SerializeField] BGM _mainBgm;
 
     public TMP_Text winTmp;
@@ -241,4 +246,17 @@ public class GameControllerMultiplayer : MonoBehaviour
     }
 
   
+    public void SendFeedInteraction(string leftText, string rightText, Color leftColor, Color rightColor, Sprite iconSprite)
+    {
+        GameObject go = Instantiate(pfInteractionFeed, feedContainer);
+        go.transform.SetAsFirstSibling();
+        go.GetComponent<InteractionFeedScript>().InitParams(leftText, rightText, leftColor, rightColor, iconSprite);
+    }
+
+    public void SendFeedEvent(string text)
+    {
+        GameObject go = Instantiate(pfEventFeed, feedContainer);
+        go.transform.SetAsFirstSibling();
+        go.GetComponent<EventFeedScript>().InitParams(text);
+    }
 }

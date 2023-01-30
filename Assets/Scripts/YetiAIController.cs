@@ -19,7 +19,10 @@ public class YetiAIController : MonoBehaviour
     [SerializeField] Transform _currentTarget = null;
     [SerializeField] Vector3 _currDirection;
 
-    
+    [Space(5)]
+    [SerializeField] Sprite _interactionIcon;
+    [SerializeField] string _unitName;
+    [SerializeField] string _spawnMessage;
 
     float _checkDistanceCooldown;
     DistanceComparer distanceComparer;
@@ -33,6 +36,7 @@ public class YetiAIController : MonoBehaviour
         foreach (GameObject go in temp) _playerList.Add(go.transform);
         CheckDistanceWithPlayers();
 
+        GameControllerMultiplayer.instance.SendFeedEvent(_spawnMessage);
     }
 
     // Update is called once per frame
@@ -107,9 +111,18 @@ public class YetiAIController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
+            PlayerControllerMP player = collision.GetComponent<PlayerControllerMP>();
+            if(player.isAlive)
+            {
+                string playerName = "Player " + collision.GetComponent<PlayerControllerMP>().playerIndex;
+                GameControllerMultiplayer.instance.SendFeedInteraction(_unitName, playerName, Color.red, Color.green, _interactionIcon);
+            }
+
             _playerList.Remove(collision.gameObject.transform);
             CheckDistanceWithPlayers();
             _bloodsplatter.Play();
+
+            
         }
     }
 

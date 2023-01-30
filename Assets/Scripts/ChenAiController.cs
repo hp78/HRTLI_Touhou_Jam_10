@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChenAiController : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class ChenAiController : MonoBehaviour
     [Space(5)]
     [SerializeField] Transform _Ran;
     [SerializeField] Transform _ranSpawnPoint;
+    [SerializeField] Sprite _interactionIcon;
 
     [Space(5)]
     [SerializeField] List<PlayerControllerMP> _playerList = new List<PlayerControllerMP>();
@@ -106,6 +108,9 @@ public class ChenAiController : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             ChenFuckingDies();
+
+            string playerName = "Player " + collision.GetComponent<PlayerControllerMP>().playerIndex;
+            GameControllerMultiplayer.instance.SendFeedInteraction(playerName, "Chen", Color.green, Color.red, _interactionIcon);
         }
     }
 

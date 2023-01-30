@@ -192,6 +192,7 @@ MonoBehaviour:
   _collider: {fileID: 7700271421211426842}
   _Ran: {fileID: 4178491717967945662, guid: 10e9158b476d98a488fb2e7dbcc74222, type: 3}
   _ranSpawnPoint: {fileID: 7700271421190517702}
+  _interactionIcon: {fileID: 21300000, guid: ff074cc93409bd745ac887842c846ead, type: 3}
   _playerList: []
 --- !u!58 &7700271421211426842
 CircleCollider2D:
