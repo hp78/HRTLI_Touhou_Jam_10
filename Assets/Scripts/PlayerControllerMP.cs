@@ -12,6 +12,7 @@ public class PlayerControllerMP : MonoBehaviour
     [SerializeField] GameObject _pfBloodstain;
     [SerializeField] ParticleSystem _particleSnow;
     [SerializeField] AudioSource _crashWoompSFX;
+    [SerializeField] AudioSource _rampUpSFX;
 
 
     [Space(5)]
@@ -175,6 +176,7 @@ public class PlayerControllerMP : MonoBehaviour
     IEnumerator RampJump()
     {       
         _isJumping = true;
+        _rampUpSFX.Play();
         _inputActive = false;
 
         spriteRender.sprite = spriteJump1;
