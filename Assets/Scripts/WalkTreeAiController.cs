@@ -1,33 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ChenAiController : MonoBehaviour
+public class WalkTreeAiController : MonoBehaviour
 {
+
     [Space(5)]
     [SerializeField] SpriteRenderer _walk;
+    [SerializeField] SpriteRenderer _idle;
+    [SerializeField] ParticleSystem _snow;
+
 
     [Space(5)]
     [SerializeField] float _speed;
     [SerializeField] float _direction;
 
     [Space(5)]
-    [SerializeField] GameObject _chenSprite;
-    [SerializeField] GameObject _bloodSprite;
-    [SerializeField] Collider2D _collider;
-
-    [Space(5)]
-    [SerializeField] Transform _Ran;
-    [SerializeField] Transform _ranSpawnPoint;
-    [SerializeField] Sprite _interactionIcon;
-
-    [Space(5)]
     [SerializeField] List<PlayerControllerMP> _playerList = new List<PlayerControllerMP>();
 
     float _changeDirectionCooldown = 0f;
-    bool _chendies = false;
-    bool _grabbedPlayers;
+    float _idleDuration = 0f;
+    float _walkDuration = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,9 +30,12 @@ public class ChenAiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_chendies)
+        if (_idleDuration > 0.0f)
+            Idle();
+        else
         {
             Movement();
+
             if (_changeDirectionCooldown < 0f)
             {
                 _direction = Random.Range(-1f, 1f);
@@ -50,14 +46,35 @@ public class ChenAiController : MonoBehaviour
             _changeDirectionCooldown -= Time.deltaTime;
         }
     }
-
     void Movement()
     {
         this.transform.position += new Vector3((_speed * _direction),
-                                                0f, 0f) 
-                                                *Time.deltaTime;
+                                                0f, 0f)
+                                                * Time.deltaTime;
 
         _walk.flipX = _direction < 0.0f;
+
+        _walkDuration -= Time.deltaTime;
+        if(_walkDuration<0.0f)
+        {
+            _idleDuration = Random.Range(0.5f, 2f);
+            _walk.gameObject.SetActive(false);
+            _idle.gameObject.SetActive(true);
+        }
+    }
+
+    void Idle()
+    {
+        
+        _idleDuration -= Time.deltaTime;
+        if(_idleDuration<0.0f)
+        {
+            _walkDuration = Random.Range(0.5f, 2f);
+            _walk.gameObject.SetActive(true);
+            _idle.gameObject.SetActive(false);
+
+
+        }
     }
 
     void CheckPlayerDistance()
@@ -66,14 +83,14 @@ public class ChenAiController : MonoBehaviour
         foreach (GameObject go in temp)
         {
             var tempplayer = go.GetComponent<PlayerControllerMP>();
-            if(!_playerList.Contains(tempplayer))
+            if (!_playerList.Contains(tempplayer))
                 _playerList.Add(go.GetComponent<PlayerControllerMP>());
         }
 
         if (_playerList.Count == 0) return;
 
 
-        List<Transform> aliveList =  new List<Transform>();
+        List<Transform> aliveList = new List<Transform>();
         foreach (PlayerControllerMP player in _playerList)
         {
 
@@ -83,9 +100,9 @@ public class ChenAiController : MonoBehaviour
 
         Transform lowestPlayer = null;
 
-        foreach(Transform t in aliveList)
+        foreach (Transform t in aliveList)
         {
-            if (t.position.y + 5f > this.transform.position.y)
+            if (t.position.y+5f > this.transform.position.y)
                 return;
 
             if (!lowestPlayer) lowestPlayer = t;
@@ -94,32 +111,9 @@ public class ChenAiController : MonoBehaviour
         }
 
         if (lowestPlayer) this.transform.position = new Vector3(lowestPlayer.position.x + Random.Range(-10f, 10f),
-                                                                 lowestPlayer.position.y - Random.Range(30f ,40f),
+                                                                 lowestPlayer.position.y - Random.Range(30f, 40f),
                                                                  lowestPlayer.position.z);
-                        
 
 
-
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Player"))
-        {
-            ChenFuckingDies();
-
-            string playerName = "Player " + collision.GetComponent<PlayerControllerMP>().playerIndex;
-            GameControllerMultiplayer.instance.SendFeedInteraction(playerName, "Chen", Color.green, Color.red, _interactionIcon);
-        }
-    }
-
-    void ChenFuckingDies()
-    {
-        Instantiate(_Ran, _ranSpawnPoint.position, Quaternion.identity);
-        _chendies = true;
-        _collider.enabled = false;
-        _chenSprite.SetActive(false);
-        _bloodSprite.SetActive(true);
     }
 }
