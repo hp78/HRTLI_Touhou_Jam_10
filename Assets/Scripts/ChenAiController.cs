@@ -7,6 +7,7 @@ public class ChenAiController : MonoBehaviour
 {
     [Space(5)]
     [SerializeField] SpriteRenderer _walk;
+    [SerializeField] AudioSource _splat;
 
     [Space(5)]
     [SerializeField] float _speed;
@@ -117,6 +118,7 @@ public class ChenAiController : MonoBehaviour
     void ChenFuckingDies()
     {
         Instantiate(_Ran, _ranSpawnPoint.position, Quaternion.identity);
+        _splat.Play();
         _chendies = true;
         _collider.enabled = false;
         _chenSprite.SetActive(false);
