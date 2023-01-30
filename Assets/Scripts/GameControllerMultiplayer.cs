@@ -13,7 +13,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     public PlayerInputManager playerInputManager;
 
     List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
-    List<PlayerControllerMP> _playersPerma = new List<PlayerControllerMP>();
+    public List<PlayerControllerMP> _playersPerma = new List<PlayerControllerMP>();
 
     [Space(5)]
     public GameObject pausePanel;
@@ -174,10 +174,10 @@ public class GameControllerMultiplayer : MonoBehaviour
 
         foreach (PlayerControllerMP pcmp in _playersPerma)
         {
-            if ((int)-pcmp.transform.position.y > bestDistance)
+            if ((int)(-pcmp.transform.position.y) > bestDistance)
             {
                 bestDistance = (int)(-pcmp.transform.position.y);
-                bestPlayer = pcmp.playerInput.playerIndex + 1;
+                bestPlayer = pcmp.playerIndex;
             }
         }
 
@@ -201,10 +201,10 @@ public class GameControllerMultiplayer : MonoBehaviour
 
         foreach(PlayerControllerMP pcmp in _playersPerma)
         {
-            if((int)-pcmp.transform.position.y > bestDistance)
+            if((int)(-pcmp.transform.position.y) > bestDistance)
             {
                 bestDistance = (int)(-pcmp.transform.position.y);
-                bestPlayer = pcmp.playerInput.playerIndex + 1;
+                bestPlayer = pcmp.playerIndex;
             }
         }
 

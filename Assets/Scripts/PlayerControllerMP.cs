@@ -6,6 +6,7 @@ public class PlayerControllerMP : MonoBehaviour
 {
     public bool isAlive = true;
     public PlayerInput playerInput;
+    public int playerIndex;
     //bool isMouse = false;
 
     [SerializeField] GameObject _pfBloodstain;
@@ -58,6 +59,7 @@ public class PlayerControllerMP : MonoBehaviour
         Debug.Log(playerInput.currentControlScheme + " joined");
         transform.position += new Vector3(pIndex * 3f, 0);
 
+        playerIndex = pIndex + 1;
         string joinMsg = "Player" + (pIndex+1) + " (" + playerInput.currentControlScheme + ") has joined\n";
 
         GameControllerMultiplayer.instance.AddPlayer(this, joinMsg);
