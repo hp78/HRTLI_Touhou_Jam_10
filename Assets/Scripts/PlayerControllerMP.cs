@@ -52,8 +52,6 @@ public class PlayerControllerMP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 1f;
-
         int pIndex = playerInput.playerIndex;
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
