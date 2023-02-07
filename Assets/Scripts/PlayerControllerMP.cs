@@ -12,7 +12,6 @@ public class PlayerControllerMP : MonoBehaviour
     [SerializeField] GameObject _pfBloodstain;
     [SerializeField] ParticleSystem _particleSnow;
     [SerializeField] AudioSource _crashWoompSFX;
-    [SerializeField] AudioSource _rampUpSFX;
 
 
     [Space(5)]
@@ -53,6 +52,8 @@ public class PlayerControllerMP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
+
         int pIndex = playerInput.playerIndex;
         _boxCollider = GetComponent<BoxCollider2D>();
         Debug.Log(playerInput.currentControlScheme + " joined");
@@ -174,7 +175,6 @@ public class PlayerControllerMP : MonoBehaviour
     IEnumerator RampJump()
     {       
         _isJumping = true;
-        _rampUpSFX.Play();
         _inputActive = false;
 
         spriteRender.sprite = spriteJump1;
@@ -241,16 +241,6 @@ public class PlayerControllerMP : MonoBehaviour
         if (collision.CompareTag("WinZone"))
         {
             GameControllerMultiplayer.instance.WinGame();
-        }
-
-        if (collision.CompareTag("KillZone"))
-        {
-            string playerName = "Player " + playerIndex;
-            GameControllerMultiplayer.instance.SendFeedInteraction(playerName, "Fell off the edge of Gensokyo", Color.green, new Color(1, 0, 1), spriteFumble);
-            GetEaten();
-
-            if (GameControllerMultiplayer.instance._players.Count < 1)
-                GameControllerMultiplayer.instance.LooseGame();
         }
     }
 }

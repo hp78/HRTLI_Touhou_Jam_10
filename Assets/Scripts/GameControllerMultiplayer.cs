@@ -12,7 +12,7 @@ public class GameControllerMultiplayer : MonoBehaviour
     float targetCamSize = 7;
     public PlayerInputManager playerInputManager;
 
-    public List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
+    List<PlayerControllerMP> _players = new List<PlayerControllerMP>();
     public List<PlayerControllerMP> _playersPerma = new List<PlayerControllerMP>();
 
     [Space(5)]
@@ -37,7 +37,6 @@ public class GameControllerMultiplayer : MonoBehaviour
 
     public GameObject pfChen;
     public GameObject pfSnowboarder;
-    public GameObject pfWalkingTree;
 
     [Space(5)]
     public TMP_Text lobbyTmp;
@@ -88,9 +87,6 @@ public class GameControllerMultiplayer : MonoBehaviour
 
             go = Instantiate(pfSnowboarder, obstacleParent);
             go.transform.position = new Vector3(0, -100f * i, 0);
-
-            go = Instantiate(pfWalkingTree, obstacleParent);
-            go.transform.position = new Vector3(0, -95f * i, 0);
         }
     }
 

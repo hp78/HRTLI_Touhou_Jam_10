@@ -8,7 +8,6 @@ public class YetiAIController : MonoBehaviour
     [SerializeField] SpriteRenderer _idle;
     [SerializeField] SpriteRenderer _walk;
     [SerializeField] ParticleSystem _bloodsplatter;
-    [SerializeField] AudioSource _eatenSFX;
 
     [Space(5)]
     [SerializeField] float _speed;
@@ -69,7 +68,7 @@ public class YetiAIController : MonoBehaviour
 
         float totalSpeed;
         if (Vector3.Distance(_currentTarget.position, transform.position) > _catchUpDistThreshold) totalSpeed = _speed * _speedUpMod;
-        else totalSpeed = _speed *Random.Range(0.8f,1f);
+        else totalSpeed = _speed;
 
         _currDirection = (_currentTarget.position - transform.position).normalized;
 
@@ -115,8 +114,6 @@ public class YetiAIController : MonoBehaviour
             PlayerControllerMP player = collision.GetComponent<PlayerControllerMP>();
             if(player.isAlive)
             {
-                _eatenSFX.Play();
-
                 string playerName = "Player " + collision.GetComponent<PlayerControllerMP>().playerIndex;
                 GameControllerMultiplayer.instance.SendFeedInteraction(_unitName, playerName, Color.red, Color.green, _interactionIcon);
             }
@@ -125,8 +122,7 @@ public class YetiAIController : MonoBehaviour
             CheckDistanceWithPlayers();
             _bloodsplatter.Play();
 
-
-
+            
         }
     }
 

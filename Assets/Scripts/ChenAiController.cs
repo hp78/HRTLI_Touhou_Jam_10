@@ -7,7 +7,6 @@ public class ChenAiController : MonoBehaviour
 {
     [Space(5)]
     [SerializeField] SpriteRenderer _walk;
-    [SerializeField] AudioSource _splat;
 
     [Space(5)]
     [SerializeField] float _speed;
@@ -86,7 +85,7 @@ public class ChenAiController : MonoBehaviour
 
         foreach(Transform t in aliveList)
         {
-            if (t.position.y + 5f > this.transform.position.y)
+            if (t.position.y > this.transform.position.y)
                 return;
 
             if (!lowestPlayer) lowestPlayer = t;
@@ -94,8 +93,8 @@ public class ChenAiController : MonoBehaviour
             else if (t.position.y < lowestPlayer.position.y) lowestPlayer = t;
         }
 
-        if (lowestPlayer) this.transform.position = new Vector3(lowestPlayer.position.x + Random.Range(-10f, 10f),
-                                                                 lowestPlayer.position.y - Random.Range(30f ,40f),
+        if (lowestPlayer) this.transform.position = new Vector3(lowestPlayer.position.x,
+                                                                 lowestPlayer.position.y - Random.Range(30f ,50f),
                                                                  lowestPlayer.position.z);
                         
 
@@ -118,7 +117,6 @@ public class ChenAiController : MonoBehaviour
     void ChenFuckingDies()
     {
         Instantiate(_Ran, _ranSpawnPoint.position, Quaternion.identity);
-        _splat.Play();
         _chendies = true;
         _collider.enabled = false;
         _chenSprite.SetActive(false);
